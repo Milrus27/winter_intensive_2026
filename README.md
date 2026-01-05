@@ -1,4 +1,4 @@
-[200~# Goals for January 2026
+Goals for January 2026
 
 1. **Create a Telegram bot** in two weeks
 2. **Learn security basics** in the next two weeks
