@@ -20,8 +20,7 @@ Goals for January 2026
 - Python 3
 - python-telegram-bot library
 - Git & GitHub
-- Linux (Ubuntu)
+- Linux (Mint)
 - VS Code
 
-*Updated January 5th, 2026*
-
+*Updated January 6th, 2026*

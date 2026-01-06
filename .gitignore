@@ -25,3 +25,4 @@ Thumbs.db
 # VirtualBox
 *.vdi
 *.vbox
+*.gpg
