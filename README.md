@@ -22,5 +22,6 @@ Goals for January 2026
 - Git & GitHub
 - Linux (Mint)
 - VS Code
-
+- **Dependency management:** `requirements.txt` for Python packages
+- **Repository hygiene:** `.gitignore` for excluding unnecessary files
 *Updated January 6th, 2026*
