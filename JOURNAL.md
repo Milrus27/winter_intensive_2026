@@ -1,7 +1,7 @@
 ### 📅 January 4-5, 2026: Project Foundation
 - **Infrastructure Setup:**
-- Installed Ubuntu Linux on VirtualBox (later replaced with Linux Mint due to stability issues)
-- Initial exposure to Bash commands and Linux environment
+  - Installed Ubuntu Linux on VirtualBox (later replaced with Linux Mint due to stability issues)
+  - Initial exposure to Bash commands and Linux environment
 - **Version Control:**
   - Learned Git fundamentals (init, commit, push)
   - Created and configured first GitHub repository
@@ -13,10 +13,11 @@
 - **Progress:**
   - Registered GitHub account and established workflow
   - Read 2% of adapted English version of "1984"
+
 ### ⚙️ January 6, 2026: Environment Optimization
 - **System Migration:**
   - Replaced Ubuntu with Linux Mint XFCE (lightweight distribution)
-  - Resolved VirtualBox graphical issues by allocating sufficient VRAM (256MB)
+  - Resolved VirtualBox graphical issues by allocating sufficient VRAM (128MB)
 - **Development Environment:**
   - Installed Python 3.x, Git, VSCode in Linux Mint
   - Configured SSH keys for GitHub authentication
@@ -24,7 +25,65 @@
 - **Tooling:**
   - Registered on Codewars for coding challenges
   - Created `requirements.txt` with project dependencies
-  - Established `.gitignore` with professional patterns
+  - Established `.gitignore`
 - **Code Management:**
   - Pushed first Python test files to repository
   - Installed `python-telegram-bot` library for upcoming development
+
+### 🗣️ January 7, 2026: English Practice & Planning
+- **English Practice:**
+  - Conducted conversations with AI bots in English to improve fluency
+  - Practiced technical vocabulary through dialogue-based learning
+  - Focused on conversational patterns rather than formal study
+- **Strategic Adjustment:**
+  - Recognized time constraints between coding and language learning
+  - Developed micro-plan for sustainable English practice
+  - Prioritized quality over quantity in language exposure
+- **Technical Planning:**
+  - Prepared for next day's focus on Python dictionaries
+  - Reviewed resources for systematic learning approach
+
+### 📚 January 8, 2026: Dictionaries Practice & Planning
+- **Core Learning:**
+  - Studied Python dictionaries through English documentation on 3 websites
+  - Understood basic dictionary operations for data storage
+- **Code Practice:**
+  - Solved 4 Codewars challenges (8 kyu) using dictionaries
+  - Created Python files with dictionary implementations
+- **Challenges Encountered:**
+  - Counter from collections module required deeper understanding
+  - HackerRank task on Counter proved difficult due to fatigue
+- **Tomorrow's Focus:**
+  - Exception handling (try/except blocks)
+  - Working with JSON files (dictionary serialization)
+  - Applying these concepts to bot configuration
+
+- Installed `python-telegram-bot` library for upcoming development
+
+### 🗣️ January 7, 2026: English Practice & Planning
+- **English Practice:**
+  - Conducted conversations with AI bots in English to improve fluency
+  - Practiced technical vocabulary through dialogue-based learning
+  - Focused on conversational patterns rather than formal study
+- **Strategic Adjustment:**
+  - Recognized time constraints between coding and language learning
+  - Developed micro-plan for sustainable English practice
+  - Prioritized quality over quantity in language exposure
+- **Technical Planning:**
+  - Prepared for next day's focus on Python dictionaries
+  - Reviewed resources for systematic learning approach
+
+### 📚 January 8, 2026: Dictionaries Practice & Planning
+- **Core Learning:**
+  - Studied Python dictionaries through English documentation on 3 websites
+  - Understood basic dictionary operations for data storage
+- **Code Practice:**
+  - Solved 4 Codewars challenges (8 kyu) using dictionaries
+  - Created Python files with dictionary implementations
+- **Challenges Encountered:**
+  - Counter from collections module required deeper understanding
+  - HackerRank task on Counter proved difficult due to fatigue
+- **Tomorrow's Focus:**
+  - Exception handling (try/except blocks)
+  - Working with JSON files (dictionary serialization)
+  - Applying these concepts to bot configuration
