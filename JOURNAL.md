@@ -57,3 +57,20 @@
   - Exception handling (try/except blocks)
   - Working with JSON files (dictionary serialization)
   - Applying these concepts to bot configuration
+
+### ⚙️ January 9, 2026: Exceptions, JSON & Testing
+- **Core Concepts:**
+  - Studied exception handling with `try/except/else/finally` blocks
+  - Learned JSON file operations (`json.load()`/`json.dump()`)
+  - Understood the purpose of `if __name__ == "__main__"` for testing
+- **Practical Implementation:**
+  - Completed 4 hands-on tasks integrating exceptions and JSON
+  - Developed config loading system with error handling
+  - Created reusable functions for file operations
+- **English Practice:**
+  - Continued technical conversations with AI bots in English
+  - Discussed programming concepts and error handling scenarios
+- **Progress Assessment:**
+  - Task 4 established foundation for future bot configuration system
+  - Increased confidence in managing file operations and errors
+  - Satisfied with sustainable learning pace and practical focus
