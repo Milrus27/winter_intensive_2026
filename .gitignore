@@ -26,3 +26,9 @@ Thumbs.db
 *.vdi
 *.vbox
 *.gpg
+
+# Bot config
+telegram_bot/project/config.json
+telegram_bot/project/*.log
+telegram_bot/project/data/
+telegram_bot/project/logs/

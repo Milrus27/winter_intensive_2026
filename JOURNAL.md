@@ -74,3 +74,22 @@
   - Task 4 established foundation for future bot configuration system
   - Increased confidence in managing file operations and errors
   - Satisfied with sustainable learning pace and practical focus
+
+### 🧪 January 10, 2026: Config Loader & Structure
+- **Project Structure:**
+  - Created folder structure for Telegram bot: `handlers/`, `jobs/`, `utils/`
+  - Added `__init__.py` files to make Python packages
+  - Created `config_template.json` with bot settings
+- **Config Loader Development:**
+  - Refactored `load_config()` from previous JSON task
+  - Implemented logic: config.json → template → default config
+- **Testing:**
+  - Tested config loading in different scenarios
+  - Verified file creation workflow
+- **Repository Management:**
+  - Updated `.gitignore` for bot config and data
+  - Prepared for first bot implementation
+- **Next Steps:**
+  - Study python-telegram-bot documentation
+  - Start bot skeleton (bot.py)
+  - Implement "mirror" mode first
