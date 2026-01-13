@@ -21,4 +21,5 @@ Goals for January 2026
 - VS Code
 - **Dependency management:** `requirements.txt` for Python packages
 - **Repository hygiene:** `.gitignore` for excluding unnecessary files
+
 *Updated January 13th, 2026*
