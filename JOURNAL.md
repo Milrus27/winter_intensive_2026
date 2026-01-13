@@ -93,3 +93,28 @@
   - Study python-telegram-bot documentation
   - Start bot skeleton (bot.py)
   - Implement "mirror" mode first
+
+  ### 📅 January 11–12, 2026: Rest & Strategy Refinement  
+- **Strategic planning:**  
+  - Revised the initial 4-week roadmap for deeper skill consolidation  
+  - Decided to focus on one project (Telegram bot) with increasing complexity  
+  - Emphasized quality over quantity in learning outcomes  
+- **Rest & recovery:**  
+  - Took necessary breaks to prevent burnout  
+  - Reflected on progress and adjusted pacing  
+
+### 🤖 January 13, 2026: Telegram Bot Skeleton  
+- **Learning:**  
+  - Studied `python-telegram-bot` library structure (Application, Handlers, Context)  
+  - Understood asynchronous workflow (`async`/`await`) in bot development  
+- **Implementation:**  
+  - Created `bot.py` with basic command handlers (`/start`, `/help`)  
+  - Implemented “mirror mode” (`MessageHandler` with `filters.TEXT`)  
+  - Integrated config loader (`config_loader.py`) for secure token management  
+- **Bot features (v0.1):**  
+  - `/start` – personalized greeting with user state tracking (`context.user_data`)  
+  - `/help` – formatted help message with mode descriptions  
+  - Echo functionality – replies with the same text message  
+- **Repository updates:**  
+  - Updated `README.md` to reflect current project focus  
+  - *Note: Tomorrow the folder structure will be adjusted, removing the separate cybersecurity section*
