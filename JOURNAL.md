@@ -118,3 +118,25 @@
 - **Repository updates:**  
   - Updated `README.md` to reflect current project focus  
   - *Note: Tomorrow the folder structure will be adjusted, removing the separate cybersecurity section*
+
+  ### 🛠️ January 14, 2026: Logging & Cleanup
+
+**📈 Code Improvements:**
+- Added `RotatingFileHandler` for logs (1MB rotation, 3 backups)
+- Logs now save to `logs/bot.log` with timestamps and levels
+- Added `try/except` error handling in all bot functions
+- User-friendly error messages in Telegram + detailed logging
+- Personalized greetings using user's first name
+- Input validation for empty messages
+- Bot version: 0.2
+
+**🗑️ Project Cleanup:**
+- Removed `security_basics/` folder (plan updated)
+- Deleted `.gitkeep` files from practice directories
+- Added `logs/` to `.gitignore`
+
+**✅ Current Features:**
+1. Mirror mode (fully functional)
+2. Help command with formatted text
+3. User state tracking (new/returning)
+4. Error handling and logging system
