@@ -1,16 +1,15 @@
 # Python
-venv/
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
 .Python
-.pytest_cache/
 
-# Environment
-.env
-.venv
+# Virtual Environment
+venv/
 env/
+ENV/
+.env
 
 # IDE
 .vscode/
@@ -22,13 +21,11 @@ env/
 .DS_Store
 Thumbs.db
 
-# VirtualBox
-*.vdi
-*.vbox
-*.gpg
-
-# Bot config
+# Bot specific
 telegram_bot/project/config.json
 telegram_bot/project/*.log
-telegram_bot/project/data/
 telegram_bot/project/logs/
+telegram_bot/project/__pycache__/
+
+# Practice cache
+telegram_bot/practice/**/__pycache__/
