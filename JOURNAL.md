@@ -119,7 +119,7 @@
   - Updated `README.md` to reflect current project focus  
   - *Note: Tomorrow the folder structure will be adjusted, removing the separate cybersecurity section*
 
-  ### 🛠️ January 14, 2026: Logging & Cleanup
+### 🛠️ January 14, 2026: Logging & Cleanup
 
 **📈 Code Improvements:**
 - Added `RotatingFileHandler` for logs (1MB rotation, 3 backups)
@@ -140,3 +140,23 @@
 2. Help command with formatted text
 3. User state tracking (new/returning)
 4. Error handling and logging system
+
+### 🔧 January 15, 2026: Version 0.2.1 & Network Error Handling
+- **New Features:**
+  - Added `/mode` command to display current mode (basic version)
+  - Added network error handler
+- **Bug Fixes:**
+  - Fixed bug in `echo` function (missing `update.message.reply_text` for empty messages)
+  - Improved error handling in all command functions
+- **Improvements:**
+  - Enhanced log format to include seconds (`HH:MM:SS`)
+  - Updated welcome message in `/start` command
+  - Refined help text and mode description
+  - Bot version updated to 0.2.1
+- **Testing:**
+  - Tested exception handling by simulating errors in code
+  - Verified that bot survives internet connection loss and queues messages
+  - Confirmed that image files are ignored (as expected for mirror mode)
+- **Notes:**
+  - The `/mode` command is a foundation for future mode switching (inline buttons planned)
+  - Global error handler logs network and unexpected errors, improving bot resilience
