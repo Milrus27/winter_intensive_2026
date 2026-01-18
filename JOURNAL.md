@@ -189,18 +189,18 @@
   - Added comprehensive input validation to prevent malicious data
   - Implemented character filtering to block binary/control sequences
   - Set message length limits (1000 characters) to prevent spam
-  **Rate Limiting System:**
+- **Rate Limiting System:**
   - Developed limiter() function to prevent message flooding
   - Configurable intervals (default: 1 second between messages)
   - Time-based logic using Unix timestamps for precision
-  **Safe Logging:**
+- **Safe Logging:**
   - Created safe_logger() to truncate long messages in logs (200 chars max)
-  **Modular Architecture:**
+- **Modular Architecture:**
   - Separated utilities into dedicated modules: rate_limiter.py, safe_logger.py, validators.py
   - Each module focused on single responsibility principle
-  **Error Handling:**
+- **Error Handling:**
   - All validations provide clear feedback to users
   - Exceptions are caught and handled gracefully
-  **Version Update:**
+- **Version Update:**
   - Bot upgraded to version 0.2.3
   - Foundation laid for future security enhancements
