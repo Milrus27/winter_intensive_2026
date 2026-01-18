@@ -21,7 +21,7 @@ logging.basicConfig(
     handlers=[
         RotatingFileHandler(
             'logs/bot.log',
-            maxBytes=1024*1024,
+            maxBytes=5*1024*1024,
             backupCount=3,
             encoding='utf-8'
         ),
