@@ -26,6 +26,7 @@ telegram_bot/project/config.json
 telegram_bot/project/*.log
 telegram_bot/project/logs/
 telegram_bot/project/__pycache__/
+telegram_bot/project/data/
 
 # Practice cache
 telegram_bot/practice/**/__pycache__/

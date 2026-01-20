@@ -1,5 +1,5 @@
-import time
 import logging
+from utils.user_manager import update_user
 from utils.rate_limiter import limiter
 from utils.safe_logger import safe_logger
 from utils.validators import valid_len_text, no_binary
@@ -8,13 +8,9 @@ logger = logging.getLogger(__name__)
 
 async def echo(update, context):
     try:
-        message_age = time.time()
-        if message_age > 30:
-            logger.info(f'Ignored old message')
-            return
-        
         user_text = update.message.text
         user_id = update.effective_user.id
+        update_user(user_id)
 
         if not user_text.strip():
             await update.message.reply_text('📝 Please, type something')
