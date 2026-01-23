@@ -20,16 +20,16 @@ async def admin_help(update, context):
         admins = len(admin_list)
 
         message = F'''🛡️ Bot Admin Panel\n
-    Available Commands:\n
-    /admin_stats - Bot statistics
-    /admin_user_info <ID> - User information.
-    /admin_ban <ID> [reason] - Ban a user
-    /admin_unban <ID> - Unban
-    /admin_help - This help page\n
-    System Information:
-    👑 Total admins: {admins}
-    🆔 Your ID: {user_id}\n
-    📊 Use this commands with caution'''
+Available Commands:\n
+/admin_stats - Bot statistics
+/admin_user_info <ID> - User information.
+/admin_ban <ID> [reason] - Ban a user
+/admin_unban <ID> - Unban
+/admin_help - This help page\n
+System Information:
+👑 Total admins: {admins}
+🆔 Your ID: {user_id}\n
+📊 Use this commands with caution'''
         
         await update.message.reply_text(message)
 

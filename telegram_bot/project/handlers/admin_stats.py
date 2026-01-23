@@ -49,12 +49,12 @@ async def admin_stats(update, context):
         message = f'''
     📊 Bot statistics:
 
-    👥 Total users: {total_users}
-    💬 Total messages: {total_messages}
-    🔥 Active today: {active_today}
-    🚫 Blocked (in database): {blocked_users}
-    📋 Blacklisted: {blacklist_count}
-    📁 Log size: {log_size} bytes'''
+👥 Total users: {total_users}
+💬 Total messages: {total_messages}
+🔥 Active today: {active_today}
+🚫 Blocked (in database): {blocked_users}
+📋 Blacklisted: {blacklist_count}
+📁 Log size: {log_size} bytes'''
         
         await update.message.reply_text(message)
 

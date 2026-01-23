@@ -9,10 +9,8 @@
   - Developed 4-week learning roadmap:
     1. Weeks 1-2: Advanced Python + Telegram bot development
     2. Weeks 3-4: Cybersecurity & cryptography fundamentals
-  - Personal goals: Achieve English B2 level, complete Orwell's "1984"
 - **Progress:**
   - Registered GitHub account and established workflow
-  - Read 2% of adapted English version of "1984"
 
 ### ⚙️ January 6, 2026: Environment Optimization
 - **System Migration:**
@@ -161,7 +159,7 @@
   - The `/mode` command is a foundation for future mode switching (inline buttons planned)
   - Global error handler logs network and unexpected errors, improving bot resilience
 
-### 🏗️ January 16, 2026: Code Architecture & Logging Implementation
+### 🏗️ January 16, 2026: Code Architecture & Logging Implementation (v.0.2.2)
 
 **🔧 Code Restructuring:**
 - Refactored monolithic bot code into modular architecture
@@ -249,3 +247,36 @@
 - Solved complex Python import system challenges
 - Enhanced error handling and logging for admin operations
 - Laid foundation for user banning/unbanning system
+
+### 🏖️ January 22, 2026: Rest & Reflection
+
+- Strategic pause: Took a deliberate break to prevent burnout
+
+### 🛡️ January 23, 2026: Admin User Management (v0.4.0)
+
+- **Version Transition:** Successfully upgraded bot from 0.3.0 → 0.4.0
+
+- **Core Command Implementation:** Completed `/admin_user_info <ID>` functionality
+- Telegram API integration for user data retrieval (names, usernames)
+- Local database statistics display (message counts, activity timelines)
+- Blacklist status verification from configuration files
+- Comprehensive error handling for missing Telegram profiles
+
+- **Admin Panel Progress:** Expanded to 3/5 core commands
+- `/admin_help` - command reference with admin count
+- `/admin_stats` - bot analytics dashboard  
+- `/admin_user_info` - detailed user profiling
+
+- **Technical Development:**
+- Implemented dual validation system (local DB + Telegram API)
+- Enhanced argument parsing and permission validation patterns
+
+- **Strategic Progress:**
+- Maintained consistent development pace despite complexity
+- Applied semantic versioning principles for release management
+- Established foundation for final admin commands (ban/unban)
+- Prepared structured approach for upcoming reminder system
+
+🔧 **System Impact:**
+- Admin capabilities significantly expanded beyond basic statistics
+- User management now includes individual profiling and status tracking

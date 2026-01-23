@@ -7,6 +7,7 @@ from handlers.mode import mode_command
 from handlers.echo import echo
 from handlers.admin_help import admin_help
 from handlers.admin_stats import admin_stats
+from handlers.admin_user_info import admin_user_info
 from config_loader import load_config
 import os
 
@@ -52,6 +53,7 @@ def main():
         app.add_handler(CommandHandler('mode', mode_command))
         app.add_handler(CommandHandler('admin_help', admin_help))
         app.add_handler(CommandHandler('admin_stats', admin_stats))
+        app.add_handler(CommandHandler('admin_user_info', admin_user_info))
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
         app.add_error_handler(error_callback)
         
