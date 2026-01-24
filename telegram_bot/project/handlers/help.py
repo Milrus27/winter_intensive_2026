@@ -16,7 +16,7 @@ Commands:\n
 /start — Start the bot
 /help — Show this help message
 /mode — Switch between modes\n
-Version: 0.4.0 | Developer: Milrus"""
+Version: pre 0.5.0 | Developer: Milrus"""
         )
         await update.message.reply_text(help_text)
         logger.info(f'❓ Help requested by {user_id}')

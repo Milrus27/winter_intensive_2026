@@ -24,7 +24,7 @@ Available Commands:\n
 /admin_stats - Bot statistics
 /admin_user_info <ID> - User information.
 /admin_ban <ID> [reason] - Ban a user
-/admin_unban <ID> - Unban
+/admin_unban <ID> - Unban a user
 /admin_help - This help page\n
 System Information:
 👑 Total admins: {admins}

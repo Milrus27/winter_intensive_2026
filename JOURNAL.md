@@ -277,3 +277,14 @@
 🔧 **System Impact:**
 - Admin capabilities significantly expanded beyond basic statistics
 - User management now includes individual profiling and status tracking
+
+### 🛡️ January 24, 2026: Admin Ban System (Pre-v0.5.0)  
+
+- **Ban/Unban Commands:** Implemented `/admin_ban` and `/admin_unban` with argument parsing and validation
+- **Auto-Ban System:** Created automatic banning functionality for users with 10+ spam flags  
+- **Integration:** Connected ban system with user database and configuration files
+- **Bug Identification:** Discovered critical issues requiring fixes
+- **Version Status:** Released pre-v0.5.0 as a development milestone, with full release pending bug fixes
+- **Technical Progress:** Established foundation for user moderation, with remaining polish needed for production use
+
+🔧 **Next Steps:** Address identified bugs, refine statistics, and release stable v0.5.0.

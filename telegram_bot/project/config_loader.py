@@ -3,6 +3,15 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+def save_config(config_data, filename='config.json'):
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(config_data, f, indent=4, ensure_ascii=False)
+        logger.info(f'✅ Config saved to {filename}')
+
+    except Exception as e:
+        logger.error(f'❌ Error saving config: {e}')
+
 def load_config(filename='config.json', template_filename='config_template.json'):
 
     try:
@@ -12,7 +21,7 @@ def load_config(filename='config.json', template_filename='config_template.json'
             return data
     
     except FileNotFoundError:
-        print(f'The file {filename} not found. Trying to use the template')
+        logger.info(f'The file {filename} not found. Trying to use the template')
         try:
             with open(template_filename, 'r', encoding='utf-8') as f1:
                 data_template = json.load(f1)

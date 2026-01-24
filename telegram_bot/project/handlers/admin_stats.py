@@ -20,7 +20,10 @@ async def admin_stats(update, context):
 
         users = load_users()
 
-        total_users = len(users)
+        total_users = 0
+        for user_data in users.values():
+            if user_data.get('messages_count', 0) > 0:
+                total_users += 1
 
         total_messages = 0
         for user_data in users.values():
@@ -34,13 +37,16 @@ async def admin_stats(update, context):
             if today in time.get('last_seen'):
                 active_today += 1
 
-        blocked_users = 0
+        total_banned = 0
+        manual_banned = 0
+        auto_banned = 0
         for user_data in users.values():
             if user_data.get('is_blocked', False):
-                blocked_users += 1
-        
-        config = load_config()
-        blacklist_count = len(config.get('blacklist', []))
+                total_banned += 1
+                if user_data.get('auto_banned'):
+                    auto_banned += 1
+                else:
+                    manual_banned += 1
 
         log_size = 0
         if os.path.exists('logs/bot.log'):
@@ -52,8 +58,9 @@ async def admin_stats(update, context):
 👥 Total users: {total_users}
 💬 Total messages: {total_messages}
 🔥 Active today: {active_today}
-🚫 Blocked (in database): {blocked_users}
-📋 Blacklisted: {blacklist_count}
+🚫 Total banned: {total_banned}
+👨‍💻 Manual banned: {manual_banned}
+🤖 Auto banned: {auto_banned}
 📁 Log size: {log_size} bytes'''
         
         await update.message.reply_text(message)

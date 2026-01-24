@@ -75,6 +75,9 @@ async def admin_user_info(update, context):
                 is_in_blacklist = True
                 break
         
+        banned_by = user_data.get('banned_by')
+        auto = user_data.get('auto_banned', False)
+
         logger.info(f'✅ Admin {user_id} called /admin_user_info about {target_user_id}')
 
         if telegram_info:
@@ -96,23 +99,25 @@ async def admin_user_info(update, context):
 
         message = f'''👤 The user {target_user_id}
 
-Name: {name_display}
-Username: {username_display}
+👨‍💼 Name: {name_display}
+📱 Username: {username_display}
 
-Statistics:
-1) First message date: {first_seen}
-2) Last message date: {last_seen}
-3) Total messages: {message_count}
-4) Spam flags: {spam_flags}
+📅 First message date: {first_seen}
+⏰ Last message date: {last_seen}
+💬 Total messages: {message_count}
+🚨 Spam flags: {spam_flags}
 
 Blocking status:
-Blacklisted: {'Yes' if is_in_blacklist else 'No'}
-In the database: {'Blocked' if is_blocked else 'Not blocked'}'''
+Banned: {'🔴 Yes 🔴' if is_in_blacklist else '🟢 No 🟢'}'''
 
         if ban_reason:
-            message += f'\nBan reason: {ban_reason}'
+            message += f'\n📋 Ban reason: {ban_reason}'
         if ban_date:
-            message += f'\nBan date: {ban_date}'
+            message += f'\n🗓️ Ban date: {ban_date}'
+        if banned_by:
+            message += f'\n👨‍💼 Banned by admin: {banned_by}'
+        if auto:
+            message += '\n🤖 Banned automatically by system'
 
         await update.message.reply_text(message)
 
