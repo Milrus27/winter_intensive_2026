@@ -41,8 +41,6 @@ async def admin_unban(update, context):
 
         if success:
             users = load_config()
-            users[target_user_id_str]['spam_flags'] = 0
-            
             logger.warning(f'✅ Admin {user_id} unbanned user {target_user_id}')
             await update.message.reply_text(f'✅ User {target_user_id} has been unbanned')
         else:

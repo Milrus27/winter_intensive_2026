@@ -34,7 +34,7 @@ def ban_user(user_id, reason='', banned_by=None, auto=False):
     time_str = curr_time.strftime('%Y-%m-%d %H:%M:%S')
     if user_str not in users:
         users[user_str] = {
-            'first_seen': time_str,
+            'first_seen': None,
             'last_seen': time_str,
             'message_count': 0,
             'spam_flags': 0,
@@ -70,6 +70,7 @@ def unban_user(user_id):
     user_str = str(user_id)
     if user_str in users:
         users[user_str]['is_blocked'] = False
+        users[user_str]['spam_flags'] = 0
         users[user_str]['ban_reason'] = None
         users[user_str]['ban_date'] = None
         users[user_str]['banned_by'] = None

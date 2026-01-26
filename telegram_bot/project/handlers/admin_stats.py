@@ -20,10 +20,12 @@ async def admin_stats(update, context):
 
         users = load_users()
 
-        total_users = 0
+        total_users = len(users)
+
+        total_active_users = 0
         for user_data in users.values():
-            if user_data.get('messages_count', 0) > 0:
-                total_users += 1
+            if user_data.get('first_seen') is not None:
+                total_active_users += 1
 
         total_messages = 0
         for user_data in users.values():
@@ -31,11 +33,6 @@ async def admin_stats(update, context):
 
         curr_time = datetime.now()
         today = curr_time.strftime('%Y-%m-%d')
-
-        active_today = 0
-        for time in users.values():
-            if today in time.get('last_seen'):
-                active_today += 1
 
         total_banned = 0
         manual_banned = 0
@@ -57,7 +54,7 @@ async def admin_stats(update, context):
 
 👥 Total users: {total_users}
 💬 Total messages: {total_messages}
-🔥 Active today: {active_today}
+🔥 Total active users: {total_active_users}
 🚫 Total banned: {total_banned}
 👨‍💻 Manual banned: {manual_banned}
 🤖 Auto banned: {auto_banned}
