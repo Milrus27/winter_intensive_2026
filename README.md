@@ -32,28 +32,6 @@ A multifunctional Telegram bot with mirror mode, reminder system, and admin pane
 - **Git & GitHub** — Version control
 - **VS Code** — Development environment
 
-## 📁 Project Structure
-telegram_bot/
-├── practice/ # Daily practice exercises
-├── project/ # Bot source code
-│ ├── data/ # JSON data files (ignored by git)
-│ │ ├── logs/ # Log files
-│ │ └── *.json # User data
-│ ├── handlers/ # Command handlers
-│ │ ├── start.py
-│ │ ├── remind.py
-│ │ └── ...
-│ ├── utils/ # Utilities
-│ │ ├── admin_check.py
-│ │ ├── reminder_storage.py
-│ │ └── user_manager.py
-│ ├── bot.py # Main bot file
-│ ├── config_template.json # Configuration template
-│ ├── config.json # Actual config (ignored)
-│ └── requirements.txt
-├── JOURNAL.md # Development journal
-└── README.md # This file
-
 ## 🚀 Quick Start
 
 ### 1. Installation
