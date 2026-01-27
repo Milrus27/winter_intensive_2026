@@ -37,11 +37,6 @@ def load_config(filename='config.json', template_filename='config_template.json'
             default_config = {
                 "bot_token": "YOUR_BOT_TOKEN_HERE",
                 "admin_ids": [123456789],
-                "reminder_settings": {
-                "min_interval_hours": 1,
-                "max_per_user": 5,
-                "max_text_length": 1000,
-                },
                 "blacklist": []
             }
         with open(filename, 'w', encoding='utf-8') as f:

@@ -10,6 +10,9 @@ from handlers.admin_stats import admin_stats
 from handlers.admin_user_info import admin_user_info
 from handlers.admin_ban import admin_ban
 from handlers.admin_unban import admin_unban
+from handlers.remind import remind
+from handlers.my_reminds import my_reminds
+from handlers.remove_reminder import remove_reminder_handler
 from config_loader import load_config
 import os
 
@@ -58,6 +61,9 @@ def main():
         app.add_handler(CommandHandler('admin_user_info', admin_user_info))
         app.add_handler(CommandHandler('admin_ban', admin_ban))
         app.add_handler(CommandHandler('admin_unban', admin_unban))
+        app.add_handler(CommandHandler('remind', remind))
+        app.add_handler(CommandHandler('my_reminds', my_reminds))
+        app.add_handler(CommandHandler('remove_remind', remove_reminder_handler))
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
         app.add_error_handler(error_callback)
         

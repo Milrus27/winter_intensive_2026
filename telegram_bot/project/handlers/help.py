@@ -7,16 +7,19 @@ async def help_command(update, context):
     user_id = update.effective_user.id
     try:
         help_text = (
-            """I'm Milrus, your helper bot!\n
+            """I'm Milrus, your helper bot! 🤖\n
 Working Modes:\n
 1) Mirror Mode 🔄 — I reply to your messages with the same text
-2) Reminder Mode ⏰ (in development) — Set reminders for important tasks
+2) Reminder Mode ⏰ — Set reminders for important tasks
 3) Other modes 🛠️ — coming soon...\n
 Commands:\n
 /start — Start the bot
 /help — Show this help message
-/mode — Switch between modes\n
-Version: 0.5.0 | Developer: Milrus"""
+/mode — Switch between modes
+/remind [text] [hours] — Create a reminder (1-168 hours)
+/my_reminds — List your reminders (max 5)
+/remove_remind [ID] — Delete a reminder by ID\n
+Version: 0.6.0 | Developer: Milrus"""
         )
         await update.message.reply_text(help_text)
         logger.info(f'❓ Help requested by {user_id}')
