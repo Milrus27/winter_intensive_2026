@@ -313,7 +313,7 @@
   - ✅ User unbanning with system cleanup (`/admin_unban`)
   - ✅ Command reference and permissions (`/admin_help`)
 
-### ⏰ January 27, 2026: Reminder System Foundation (v0.6.0)
+### ⏰ January 27, 2026: Reminder System Foundation (v0.6.0 & 0.6.1)
 
 - **Core Infrastructure:** Built reminder system from ground up:
   - Created JSON-based storage system (`reminder_storage.py`) for persistent reminder data
@@ -334,3 +334,4 @@
   - Enhanced `.gitignore` to protect user reminder data
   - Upgraded version from v0.5.0 → v0.6.0 to reflect major feature addition
 - **Architectural Foundation:** Established base for upcoming background scheduler system that will automate reminder delivery
+- **Version Update:** Upgraded from v0.6.0 → v0.6.1 after quick fixes and documentation improvements

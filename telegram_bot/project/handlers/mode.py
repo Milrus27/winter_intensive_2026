@@ -4,13 +4,12 @@ logger = logging.getLogger(__name__)
 
 async def mode_command(update, context):
     try:
-        mode_text = (
-        '''🎛️ Current Mode: Mirror 🔄\n
-Available Modes:\n
-1) Mirror Mode 🔄 — echoes your message
-2) Reminder Mode ⏰ (in development) — set reminders
-3) Other modes 🛠️ — coming soon...\n
-Use buttons below to switch modes (soon)'''
+        mode_text = ('''🎭 Current bot mode:
+HYBRID (all features active)\n
+✅ Mirror Mode: Always ON
+✅ Reminder Mode: Always ON
+✅ Admin Panel: Available to admins\n
+⚙️ All features work simultaneously.'''
         )
         await update.message.reply_text(mode_text)
         logger.info(f'🎛️  Mode requested by {update.effective_user.id}')

@@ -25,12 +25,14 @@ A multifunctional Telegram bot with mirror mode, reminder system, and admin pane
 - `/admin_unban [user_id]` — Unban a user
 
 ## 🛠️ Technologies Stack
-- **Python 3.11+** — Core language
-- **python-telegram-bot** — Bot framework
-- **JSON-based storage** — For reminders and user data
-- **Rotating file logging** — Automatic log rotation
-- **Git & GitHub** — Version control
-- **VS Code** — Development environment
+- **Python 3.11+** — Core language & asynchronous programming
+- **python-telegram-bot** — Telegram Bot API framework
+- **JSON-based storage** — User data and reminders persistence
+- **Rotating file logging** — Automated log management (5MB rotation)
+- **Linux (Mint) + Bash** — Development environment & system operations
+- **Git & GitHub** — Version control & collaboration
+- **VS Code** — IDE with Python tooling
+- **VirtualBox** — Virtualization for Linux environment
 
 ## 🚀 Quick Start
 
