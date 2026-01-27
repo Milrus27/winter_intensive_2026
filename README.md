@@ -39,8 +39,8 @@ A multifunctional Telegram bot with mirror mode, reminder system, and admin pane
 ### 1. Installation
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/telegram_bot.git
-cd telegram_bot/project
+git clone https://github.com/Milrus27/winter_intensive_2026.git
+cd winter_intensive_2026/telegram_bot/project
 
 # Install dependencies
 pip install -r requirements.txt
@@ -65,14 +65,14 @@ python bot.py
 
 # Logging:
 
-Logs stored in data/logs/bot.log
-Automatic rotation every 5MB
-3 backup files kept
+# Logs stored in data/logs/bot.log
+# Automatic rotation every 5MB
+# 3 backup files kept
 ```
 
 ### 📊 Development Status:
 
-**Current Version: 0.6.0**
+**Current Version: 0.6.1**
 
 ### 👤 Developer:
 
