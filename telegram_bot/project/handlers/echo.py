@@ -15,7 +15,11 @@ async def echo(update, context):
         update_user(user_id)
 
         if is_user_banned(user_id):
-            await update.message.reply_text('🚫 You have been banned')
+            await update.message.reply_text(
+'''🚫 You have been banned for spamming in echo mode
+📝 You can still use: /remind, /reminders, /remove_remind
+🔄 Contact administrator for unban''')
+            logger.info(f'⛔ Banned user {user_id} attempted to use echo')
             return
         
         if not user_text.strip():

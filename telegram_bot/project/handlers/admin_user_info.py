@@ -108,7 +108,7 @@ async def admin_user_info(update, context):
 🚨 Spam flags: {spam_flags}
 
 Blocking status:
-Banned: {'🔴 Yes 🔴' if is_in_blacklist else '🟢 No 🟢'}'''
+Banned (only echo mode can be banned): {'🔴 Yes 🔴' if is_in_blacklist else '🟢 No 🟢'}'''
 
         if ban_reason:
             message += f'\n📋 Ban reason: {ban_reason}'

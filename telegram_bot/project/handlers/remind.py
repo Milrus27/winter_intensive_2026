@@ -40,7 +40,7 @@ async def remind(update, context):
 
         if reminder_id:
             logging.info(f'📝 The user {user_id} added a new reminder (ID: {reminder_id})')
-            await update.message.reply_text(f'📝 You are successfully added a new reminder\nID: {reminder_id}')
+            await update.message.reply_text(f'✅ Reminder added! ID: {reminder_id}')
         else:
             await update.message.reply_text('❌ You have exceeded the 5 reminder limit. Delete at least one')
     

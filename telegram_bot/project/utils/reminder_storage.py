@@ -1,5 +1,5 @@
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 def load_reminders():
     try:
@@ -24,12 +24,12 @@ def add_reminder(user_id, text, hours):
     
     reminder_id = int(datetime.now().timestamp())
 
-    next_time = datetime.now() + timedelta(hours=hours)
+    next_time = datetime.now(timezone.utc) + timedelta(hours=hours)
     new_reminder = {
         'id': reminder_id,
         'text': text,
         'hours': hours,
-        'next_run': next_time.strftime('%Y-%m-%d %H:%M:%S')
+        'next_run': next_time.isoformat()
     }
 
     reminders[user_id_str].append(new_reminder)

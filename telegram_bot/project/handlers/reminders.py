@@ -1,9 +1,18 @@
 import logging
+from datetime import datetime, timezone
 from utils.reminder_storage import get_user_reminders
 
 logger = logging.getLogger(__name__)
 
-async def my_reminds(update, context):
+def format_reminder_time(iso_time_str):
+    try:
+        format = datetime.fromisoformat(iso_time_str)
+        return format.strftime('%Y-%m-%d %H:%M:%S UTC')
+    
+    except Exception:
+        return iso_time_str
+    
+async def reminders(update, context):
     try:
         user_id = update.effective_user.id
         user_reminders = get_user_reminders(user_id)
@@ -19,15 +28,16 @@ async def my_reminds(update, context):
             reminder_id = reminder['id']
             reminder_text = reminder['text']
             reminder_time = reminder['hours']
-            reminder_next_run = reminder['next_run']
+
+            reminder_next_run = format_reminder_time(reminder['next_run'])
 
             reminder_block = f"""
-==================
+====================================
 🔔 ID: {reminder_id}
 📝 Text: {reminder_text}
-⏰ Interval: every {reminder_time} hours
-🕐 Next time: {reminder_next_run}
-=================="""
+⏰ Set for: {reminder_time} hour{'s' if reminder_time != 1 else ''}
+🕐 Due (UTC): {reminder_next_run}
+===================================="""
     
             message.append(reminder_block)
         

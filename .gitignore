@@ -34,6 +34,7 @@ desktop.ini
 telegram_bot/project/config.json
 telegram_bot/project/*.log
 telegram_bot/project/logs/
+telegram_bot/project/backups/
 telegram_bot/project/__pycache__/
 telegram_bot/project/data/
 telegram_bot/project/data/*.json

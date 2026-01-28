@@ -17,10 +17,10 @@ Commands:\n
 /help — Show this help message
 /mode — Show current bot configuration
 /remind [text] [hours] — Create a reminder (1-168 hours)
-/my_reminds — List your reminders (max 5)
+/reminders — List your reminders (max 5)
 /remove_remind [ID] — Delete a reminder by ID\n
 📌 All features work simultaneously in hybrid mode.\n
-Version: 0.6.1 | Developer: Milrus"""
+Version: pre 1.0.0 | Developer: Milrus"""
         )
         await update.message.reply_text(help_text)
         logger.info(f'❓ Help requested by {user_id}')

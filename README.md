@@ -14,7 +14,7 @@ A multifunctional Telegram bot with mirror mode, reminder system, and admin pane
 - `/help` — Show help message
 - `/mode` — Switch between modes
 - `/remind [text] [hours]` — Create a reminder (1-168 hours)
-- `/my_reminds` — List your reminders (max 5 per user)
+- `/reminders` — List your reminders (max 5 per user)
 - `/remove_remind [ID]` — Delete a reminder by ID
 
 ### 🔧 Admin Commands
@@ -33,6 +33,30 @@ A multifunctional Telegram bot with mirror mode, reminder system, and admin pane
 - **Git & GitHub** — Version control & collaboration
 - **VS Code** — IDE with Python tooling
 - **VirtualBox** — Virtualization for Linux environment
+
+## 💾 **Data Management & Backup**
+
+### **Data Storage**
+- **User data**: `data/users.json` - user statistics, ban status, message history
+- **Reminders**: `data/reminders.json` - active reminders with timestamps in UTC
+- **Format**: JSON files with UTF-8 encoding supporting Cyrillic/Unicode
+
+### **Automatic Backup System**
+- **Backup on startup**: Automatic backup of user data and reminders on every bot restart
+- **Location**: `backups/` folder with timestamped files (e.g., `reminders_20260128_150000.json`)
+- **Retention**: Keeps last 5 backups, automatically removes older ones
+- **Manual restore**: Simply copy from `backups/` to `data/` folder if needed
+
+### **Logging System**
+- **Location**: `logs/bot.log` with automatic rotation
+- **Rotation**: 5MB max size, keeps 3 backup log files
+- **Format**: Human-readable with timestamps, log levels, and module names
+- **Security**: Sensitive data (user IDs, message content) is logged securely
+
+## 🛡️ **Security & Privacy**
+- All times stored in UTC to avoid timezone issues
+- Banned users can still use reminder functions (only echo mode restricted)
+- Admin actions are logged for accountability
 
 ## 🚀 Quick Start
 
@@ -62,20 +86,14 @@ python bot.py
     "admin_ids": [123456789],
     "blacklist": []
 }
-
-# Logging:
-
-# Logs stored in data/logs/bot.log
-# Automatic rotation every 5MB
-# 3 backup files kept
 ```
 
 ### 📊 Development Status:
 
-**Current Version: 0.6.1**
+**Current Version: pre 1.0.0**
 
 ### 👤 Developer:
 
 **Milrus — Computer Science student**
 
-*Updated January 27th, 2026*
+*Updated January 28th, 2026*
