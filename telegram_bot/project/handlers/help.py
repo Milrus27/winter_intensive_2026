@@ -20,7 +20,7 @@ Commands:\n
 /reminders — List your reminders (max 5)
 /remove_remind [ID] — Delete a reminder by ID\n
 📌 All features work simultaneously in hybrid mode.\n
-Version: pre 1.0.0 | Developer: Milrus"""
+Version: 1.0.0 | Developer: Milrus"""
         )
         await update.message.reply_text(help_text)
         logger.info(f'❓ Help requested by {user_id}')

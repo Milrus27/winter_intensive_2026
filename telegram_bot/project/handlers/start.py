@@ -10,10 +10,11 @@ async def start(update, context):
         if 'first_time' not in context.user_data:
             context.user_data['first_time'] = True
             await update.message.reply_text(
-                f"""Hello, {user_name}! I'm Milrus bot.
-This bot has several different modes.
-You are currently in mirror mode 🔄"""
-            )
+f"""👋 Hello, {user_name}! I'm Milrus Reminder Bot!\n
+📝 I can help you create reminders that will send once after X hours
+⏰ Currently, reminders are sent once and then deleted (not repeated)
+✨ Use /help to see all commands\n
+🔧 Version: 1.0.0""")
             logger.info(f'👤 New user: {user_name}, ({user_id})')
         else:
             await update.message.reply_text(f'Hello again, {user_name}:)')
