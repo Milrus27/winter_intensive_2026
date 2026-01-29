@@ -85,7 +85,7 @@ def main():
         app = Application.builder().token(config.get('bot_token')).build()
 
         job_queue = app.job_queue
-        job_queue.run_repeating(callback=check_and_send_reminders, interval=300, first=10)
+        job_queue.run_repeating(callback=check_and_send_reminders, interval=600, first=10)
 
         app.add_handler(CommandHandler('start', start))
         app.add_handler(CommandHandler('help', help_command))

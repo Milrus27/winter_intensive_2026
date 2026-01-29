@@ -19,7 +19,8 @@ Commands:\n
 /remind [text] [hours] — Create a reminder (1-168 hours)
 /reminders — List your reminders (max 5)
 /remove_remind [ID] — Delete a reminder by ID\n
-📌 All features work simultaneously in hybrid mode.\n
+📌 All features work simultaneously in hybrid mode\n
+Note: your reminders can be delayed by a maximum of 10 minutes (but this is the maximum limit)\n
 Version: 1.0.0 | Developer: Milrus"""
         )
         await update.message.reply_text(help_text)
