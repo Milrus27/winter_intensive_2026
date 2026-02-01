@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 async def remove_reminder_handler(update, context):
     try:
         if not context.args:
-            await update.message.reply_text('❌ Usage: /remove_remind [ID]\n📋 View ID: /myreminds')
+            await update.message.reply_text('❌ Usage: /remove_remind [ID]\n📋 View ID: /reminders')
             return
         
         try:

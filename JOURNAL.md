@@ -388,3 +388,13 @@
 - Uptime: Continuous operation confirmed via process monitoring  
 
 🎉 **Version 1.0.0 is now officially live, serving users 24/7 with complete reminder functionality, admin panel, and automatic backup system.**
+
+## 🔧 February 1, 2026: v1.0.1 Patch Release
+
+**Bug Fixes:**
+- Fixed typo in /remove_remind command message (now correctly references /reminders to view IDs)
+- Corrected argument name typo in rate_limiter.py utility function
+
+**Version Update: 1.0.0 → 1.0.1**
+- Minor patch release for text corrections
+- No functional changes to core systems

@@ -14,7 +14,7 @@ f"""👋 Hello, {user_name}! I'm Milrus Reminder Bot!\n
 📝 I can help you create reminders that will send once after X hours
 ⏰ Currently, reminders are sent once and then deleted (not repeated)
 ✨ Use /help to see all commands\n
-🔧 Version: 1.0.0""")
+🔧 Version: 1.0.1""")
             logger.info(f'👤 New user: {user_name}, ({user_id})')
         else:
             await update.message.reply_text(f'Hello again, {user_name}:)')
