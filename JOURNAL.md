@@ -397,3 +397,14 @@
 **Version Update: 1.0.0 → 1.0.1**
 - Minor patch release for text corrections
 - No functional changes to core systems
+
+### 📅 February 15, 2026: Strategy & Feedback
+
+**🗣️ User & Professor Feedback**  
+Gathered valuable input from users and CS professors. Suggestions included multi‑language support, enhanced reminders, and moderation tools.
+
+**🎯 Updated Development Focus**  
+Based on feedback, the roadmap for the coming months has been refined to strengthen core skills (OOP, databases, Python fundamentals) and gradually introduce new features. Multi‑language support is now a priority.
+
+**⚙️ Hosting Challenges**  
+Identified limitations with PythonAnywhere free tier (instability, memory constraints). As a temporary fix, the bot is now running **stable on a local Ubuntu VM** with a restart script. Alternative hosting solutions are under evaluation.
