@@ -96,4 +96,4 @@ python bot.py
 
 **Milrus — Computer Science student**
 
-*Updated February 1st, 2026*
+*Updated February 15th, 2026*
