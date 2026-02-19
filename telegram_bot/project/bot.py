@@ -1,6 +1,7 @@
 import logging
 from logging.handlers import RotatingFileHandler
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
+from telegram.request import HTTPXRequest
 from handlers.start import start
 from handlers.help import help_command
 from handlers.mode import mode_command
@@ -80,12 +81,19 @@ if config.get('bot_token') == 'YOUR_BOT_TOKEN_HERE':
 async def error_callback(update, context):
     logger.error(f'Update caused error: {context.error}')
 
+request = HTTPXRequest(
+    connect_timeout=30.0,
+    read_timeout=30.0,
+    write_timeout=30.0,
+    pool_timeout=30.0
+)
+
 def main():
     try:
-        app = Application.builder().token(config.get('bot_token')).build()
+        app = Application.builder().token(config.get('bot_token')).request(request).build()
 
         job_queue = app.job_queue
-        job_queue.run_repeating(callback=check_and_send_reminders, interval=600, first=10)
+        job_queue.run_repeating(callback=check_and_send_reminders, interval=300, first=10)
 
         app.add_handler(CommandHandler('start', start))
         app.add_handler(CommandHandler('help', help_command))

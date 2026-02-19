@@ -21,7 +21,7 @@ Commands:\n
 /remove_remind [ID] — Delete a reminder by ID\n
 📌 All features work simultaneously in hybrid mode\n
 Note: your reminders can be delayed by a maximum of 10 minutes (but this is the maximum limit)\n
-Version: 1.0.1 | Developer: Milrus"""
+Version: 1.0.2 | Developer: Milrus"""
         )
         await update.message.reply_text(help_text)
         logger.info(f'❓ Help requested by {user_id}')
