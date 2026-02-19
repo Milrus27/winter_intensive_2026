@@ -216,7 +216,6 @@
 
 **🏗️ Architectural Development:**
 - Module Architecture: Solved complex Python import system challenges
-- Path Management: Implemented `sys.path.insert()` for proper module resolution
 - Project Structure: Established clean separation between handlers, utils, and data layers
 
 **📊 Admin Features Implemented:**
@@ -398,3 +397,35 @@
 **Version Update: 1.0.0 → 1.0.1**
 - Minor patch release for text corrections
 - No functional changes to core systems
+
+### 📅 February 15, 2026: Strategy & Feedback
+
+**🗣️ User & Professor Feedback**  
+Gathered valuable input from users and CS professors. Suggestions included multi‑language support, enhanced reminders, and moderation tools.
+
+**🎯 Updated Development Focus**  
+Based on feedback, the roadmap for the coming months has been refined to strengthen core skills (OOP, databases, Python fundamentals) and gradually introduce new features. Multi‑language support is now a priority.
+
+**⚙️ Hosting Challenges**  
+Identified limitations with PythonAnywhere free tier (instability, memory constraints). As a temporary fix, the bot is now running **stable on a local Ubuntu VM** with a restart script. Alternative hosting solutions are under evaluation.
+
+### 📅 February 19, 2026: Stability Enhancements & Auto-Restart Script (v1.0.2)
+
+**🔍 Problem Diagnosis:**  
+- Investigated recurring `TimedOut` and `ProxyError` errors caused by insufficient HTTP timeouts and network instability on the hosting server.
+
+**⚙️ HTTP Timeout Increase:**  
+- Raised connection, read, write, and pool timeouts for the bot’s HTTP client to **30 seconds** each (up from defaults).  
+- This allows longer waits for Telegram API responses, drastically reducing timeout-related crashes during brief network interruptions.
+
+**⏰ JobQueue Optimization:**  
+- Shortened reminder check interval from **600s → 300s** (10 min → 5 min).  
+- Improves reminder delivery accuracy while keeping CPU/memory load negligible.
+
+**🔄 Auto‑Restart Script:**  
+- Created a minimal bash script (`restart_bot.sh`) that runs the bot in an infinite loop and automatically restarts it upon any crash.  
+- Ensures 24/7 uptime without manual intervention.
+
+**📈 Outcome:**  
+- Combined timeout increases and auto‑restart make the bot far more resilient.  
+- Error rates for timeouts are expected to drop significantly, and any remaining failures are instantly recovered.
