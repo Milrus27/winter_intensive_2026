@@ -408,3 +408,24 @@ Based on feedback, the roadmap for the coming months has been refined to strengt
 
 **⚙️ Hosting Challenges**  
 Identified limitations with PythonAnywhere free tier (instability, memory constraints). As a temporary fix, the bot is now running **stable on a local Ubuntu VM** with a restart script. Alternative hosting solutions are under evaluation.
+
+### 📅 February 19, 2026: Stability Enhancements & Auto-Restart Script
+
+**🔍 Problem Diagnosis:**  
+- Investigated recurring `TimedOut` and `ProxyError` errors caused by insufficient HTTP timeouts and network instability on the hosting server.
+
+**⚙️ HTTP Timeout Increase:**  
+- Raised connection, read, write, and pool timeouts for the bot’s HTTP client to **30 seconds** each (up from defaults).  
+- This allows longer waits for Telegram API responses, drastically reducing timeout-related crashes during brief network interruptions.
+
+**⏰ JobQueue Optimization:**  
+- Shortened reminder check interval from **600s → 300s** (10 min → 5 min).  
+- Improves reminder delivery accuracy while keeping CPU/memory load negligible.
+
+**🔄 Auto‑Restart Script:**  
+- Created a minimal bash script (`restart_bot.sh`) that runs the bot in an infinite loop and automatically restarts it upon any crash.  
+- Ensures 24/7 uptime without manual intervention.
+
+**📈 Outcome:**  
+- Combined timeout increases and auto‑restart make the bot far more resilient.  
+- Error rates for timeouts are expected to drop significantly, and any remaining failures are instantly recovered.
