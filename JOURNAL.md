@@ -409,7 +409,7 @@ Based on feedback, the roadmap for the coming months has been refined to strengt
 **⚙️ Hosting Challenges**  
 Identified limitations with PythonAnywhere free tier (instability, memory constraints). As a temporary fix, the bot is now running **stable on a local Ubuntu VM** with a restart script. Alternative hosting solutions are under evaluation.
 
-### 📅 February 19, 2026: Stability Enhancements & Auto-Restart Script
+### 📅 February 19, 2026: Stability Enhancements & Auto-Restart Script (v1.0.2)
 
 **🔍 Problem Diagnosis:**  
 - Investigated recurring `TimedOut` and `ProxyError` errors caused by insufficient HTTP timeouts and network instability on the hosting server.
