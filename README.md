@@ -90,10 +90,10 @@ python bot.py
 
 ### 📊 Development Status:
 
-**Current Version: 1.0.1**
+**Current Version: 1.0.2**
 
 ### 👤 Developer:
 
 **Milrus — Computer Science student**
 
-*Updated February 15th, 2026*
+*Updated February 19th, 2026*
