@@ -1,9 +1,12 @@
 import logging
 from utils.reminder_storage import add_reminder
+from utils.user_manager import update_user
 
 logger = logging.getLogger(__name__)
 
 async def remind(update, context):
+    user_id = update.effective_user.id
+    update_user(user_id)
     try:
         if len(context.args) < 2:
             await update.message.reply_text('❌ To call the command: /remind [text] [hours]')

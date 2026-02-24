@@ -429,3 +429,18 @@ Identified limitations with PythonAnywhere free tier (instability, memory constr
 **📈 Outcome:**  
 - Combined timeout increases and auto‑restart make the bot far more resilient.  
 - Error rates for timeouts are expected to drop significantly, and any remaining failures are instantly recovered.
+
+## 📅 February 24, 2026: Patch 1.0.3 – Usability & Statistics Enhancements
+
+### 🎯 User Experience Improvements
+- **Easy ID copying** – Reminder IDs in the `/reminders` list are now wrapped in `<code>` tags (with `parse_mode='HTML'`). On mobile, users can tap and hold the monospaced ID to copy it directly.
+- **Copy hint added** – A line at the bottom of the `/reminders` output now tells users: *“💡 Tap the ID to copy it”*.
+- **Clearer error messages** – The response for incorrect `/remind` syntax now includes a brief usage example, reducing confusion.
+
+### 🐛 Bug Fixes & Data Accuracy
+- **Activity tracking** – Previously, `last_seen` and `message_count` were updated only for text messages (via `echo.py`). Commands (`/start`, `/help`, `/remind`, etc.) were ignored.  
+  Now **every user interaction** (including commands with invalid syntax) calls `update_user()`, ensuring accurate statistics in `/admin_stats` and a complete picture of user activity.
+
+### 📦 Version Update
+- Released **version 1.0.3** with these improvements and fixes.  
+- No breaking changes – users can continue using all commands as before, now with better feedback and data tracking.

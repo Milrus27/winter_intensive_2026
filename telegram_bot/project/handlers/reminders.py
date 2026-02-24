@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime, timezone
 from utils.reminder_storage import get_user_reminders
+from utils.user_manager import update_user
 
 logger = logging.getLogger(__name__)
 
@@ -13,8 +14,9 @@ def format_reminder_time(iso_time_str):
         return iso_time_str
     
 async def reminders(update, context):
+    user_id = update.effective_user.id
+    update_user(user_id)
     try:
-        user_id = update.effective_user.id
         user_reminders = get_user_reminders(user_id)
 
         if not user_reminders:
@@ -33,7 +35,7 @@ async def reminders(update, context):
 
             reminder_block = f"""
 ====================================
-🔔 ID: {reminder_id}
+🔔 ID: <code>{reminder_id}</code>
 📝 Text: {reminder_text}
 ⏰ Set for: {reminder_time} hour{'s' if reminder_time != 1 else ''}
 🕐 Due (UTC): {reminder_next_run}
@@ -41,10 +43,10 @@ async def reminders(update, context):
     
             message.append(reminder_block)
         
-        message.append('\n❓ To delete a reminder: /remove_remind [ID]')
+        message.append('\n❓ To delete a reminder: /remove_remind [ID]\n💡 Tap the ID to copy it')
 
         result = '\n'.join(message)
-        await update.message.reply_text(result)
+        await update.message.reply_text(result, parse_mode='HTML')
         logger.info(f'📋 The user {user_id} viewed reminders list')
 
     except Exception as e:

@@ -3,12 +3,13 @@ from utils.user_manager import load_users
 from utils.admin_check import is_admin
 from config_loader import load_config
 from utils.ban_manager import ban_user, is_user_banned
+from utils.user_manager import update_user
 
 logger = logging.getLogger(__name__)
 
 async def admin_ban(update, context):
     user_id = update.effective_user.id
-
+    update_user(user_id)
     try:
         if not is_admin(user_id):
             logger.warning(f'🚫 Non-admin user {user_id} tried to access /admin_ban')

@@ -1,12 +1,13 @@
 import logging
 from config_loader import load_config
 from utils.admin_check import is_admin
+from utils.user_manager import update_user
 
 logger = logging.getLogger(__name__)
 
 async def admin_help(update, context):
     user_id = update.effective_user.id
-
+    update_user(user_id)
     try:
         if not is_admin(user_id):
             logger.warning(f'🚫 Non-admin user {user_id} tried to access /admin_help')

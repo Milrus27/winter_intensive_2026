@@ -1,12 +1,15 @@
 import logging
 from utils.reminder_storage import remove_reminder
+from utils.user_manager import update_user
 
 logger = logging.getLogger(__name__)
 
 async def remove_reminder_handler(update, context):
+    user_id = update.effective_user.id
+    update_user(user_id)
     try:
         if not context.args:
-            await update.message.reply_text('❌ Usage: /remove_remind [ID]\n📋 View ID: /reminders')
+            await update.message.reply_text('❌ Usage: /remove_remind [ID]\n📋 View ID: /reminders\n⏰ Create a reminder: /remind [text] [hours]')
             return
         
         try:

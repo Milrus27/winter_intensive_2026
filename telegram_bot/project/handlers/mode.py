@@ -1,8 +1,11 @@
 import logging
+from utils.user_manager import update_user
 
 logger = logging.getLogger(__name__)
 
 async def mode_command(update, context):
+    user_id = update.effective_user.id
+    update_user(user_id)
     try:
         mode_text = ('''🎭 Current bot mode:
 HYBRID (all features active)\n

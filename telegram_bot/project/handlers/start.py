@@ -1,10 +1,12 @@
 import logging
+from utils.user_manager import update_user
 
 logger = logging.getLogger(__name__)
 
 async def start(update, context):
+    user_id = update.effective_user.id
+    update_user(user_id)
     try:
-        user_id = update.effective_user.id
         user_name = update.effective_user.first_name
 
         if 'first_time' not in context.user_data:
@@ -14,7 +16,7 @@ f"""👋 Hello, {user_name}! I'm Milrus Reminder Bot!\n
 📝 I can help you create reminders that will send once after X hours
 ⏰ Currently, reminders are sent once and then deleted (not repeated)
 ✨ Use /help to see all commands\n
-🔧 Version: 1.0.2""")
+🔧 Version: 1.0.3""")
             logger.info(f'👤 New user: {user_name}, ({user_id})')
         else:
             await update.message.reply_text(f'Hello again, {user_name}:)')
