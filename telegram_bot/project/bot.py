@@ -14,6 +14,7 @@ from handlers.admin_unban import admin_unban
 from handlers.remind import remind
 from handlers.reminders import reminders
 from handlers.remove_reminder import remove_reminder_handler
+from handlers.change_lang import change_lang
 from utils.reminder_scheduler import check_and_send_reminders
 from config_loader import load_config
 import os
@@ -106,6 +107,7 @@ def main():
         app.add_handler(CommandHandler('remind', remind))
         app.add_handler(CommandHandler('reminders', reminders))
         app.add_handler(CommandHandler('remove_remind', remove_reminder_handler))
+        app.add_handler(CommandHandler('lang', change_lang))
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
         app.add_error_handler(error_callback)
         

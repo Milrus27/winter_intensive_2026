@@ -444,3 +444,18 @@ Identified limitations with PythonAnywhere free tier (instability, memory constr
 ### 📦 Version Update
 - Released **version 1.0.3** with these improvements and fixes.  
 - No breaking changes – users can continue using all commands as before, now with better feedback and data tracking.
+
+📅 March 3, 2026: Pre‑release 1.1.0 – Multilingual Foundation
+
+🌐 Language Switching Implemented  
+- Added `/lang` command allowing users to switch between English (`en`) and Russian (`ru`).  
+- Created translation system (`utils/language.py`, `utils/translations.py`) to manage all user‑facing texts.
+
+🧠 Translation Logic  
+- `get_text_for_user(user_id, key)` retrieves the appropriate string based on the user’s stored language preference.  
+- Currently translated keys: `start`, `start_again`, `help` (main help text will be fully translated soon).  
+- New users automatically get `ru` as default language (configurable later).
+
+📦 Versioning  
+- Bumped version to **1.1.0‑pre** to mark the first step toward multilingual support.  
+- Logging remains in English for internal clarity.

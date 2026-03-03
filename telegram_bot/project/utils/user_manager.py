@@ -27,7 +27,8 @@ def update_user(user_id):
             'ban_reason': None,
             'ban_date': None,
             'banned_by': None,
-            'auto_banned': False
+            'auto_banned': False,
+            'language': 'ru'
         }
     else:
         users[user_id_str]['last_seen'] = time_str

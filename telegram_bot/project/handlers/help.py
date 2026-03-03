@@ -1,6 +1,7 @@
 import logging
 from utils.admin_check import is_admin
 from utils.user_manager import update_user
+from utils.language import get_text_for_user
 
 logger = logging.getLogger(__name__)
 
@@ -8,23 +9,7 @@ async def help_command(update, context):
     user_id = update.effective_user.id
     update_user(user_id)
     try:
-        help_text = (
-            """I'm Milrus, your helper bot! 🤖\n
-Bot Features:\n
-✅ Mirror Mode 🔄 — I reply to your messages with the same text
-✅ Reminder Mode ⏰ — Set reminders for important tasks
-✅ Admin Panel 🛡️ — User management for administrators\n
-Commands:\n
-/start — Start the bot
-/help — Show this help message
-/mode — Show current bot configuration
-/remind [text] [hours] — Create a reminder (1-168 hours)
-/reminders — List your reminders (max 5)
-/remove_remind [ID] — Delete a reminder by ID\n
-📌 All features work simultaneously in hybrid mode\n
-Note: your reminders can be delayed by a maximum of 10 minutes (but this is the maximum limit)\n
-Version: 1.0.3 | Developer: Milrus"""
-        )
+        help_text = (get_text_for_user(user_id,'help'))
         await update.message.reply_text(help_text)
         logger.info(f'❓ Help requested by {user_id}')
 
