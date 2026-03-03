@@ -445,7 +445,7 @@ Identified limitations with PythonAnywhere free tier (instability, memory constr
 - Released **version 1.0.3** with these improvements and fixes.  
 - No breaking changes – users can continue using all commands as before, now with better feedback and data tracking.
 
-📅 March 3, 2026: Pre‑release 1.1.0 – Multilingual Foundation
+### 📅 March 3, 2026: Pre‑release 1.1.0 – Multilingual Foundation
 
 🌐 Language Switching Implemented  
 - Added `/lang` command allowing users to switch between English (`en`) and Russian (`ru`).  
