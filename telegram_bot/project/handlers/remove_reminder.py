@@ -1,6 +1,7 @@
 import logging
 from utils.reminder_storage import remove_reminder
 from utils.user_manager import update_user
+from utils.language import get_text_for_user
 
 logger = logging.getLogger(__name__)
 
@@ -9,14 +10,14 @@ async def remove_reminder_handler(update, context):
     update_user(user_id)
     try:
         if not context.args:
-            await update.message.reply_text('❌ Usage: /remove_remind [ID]\n📋 View ID: /reminders\n⏰ Create a reminder: /remind [text] [hours]')
+            await update.message.reply_text(get_text_for_user(user_id, 'remove_reminder_no_context_args'))
             return
         
         try:
             reminder_id = int(context.args[0])
 
         except ValueError:
-            await update.message.reply_text('❌ The ID must be a number')
+            await update.message.reply_text(get_text_for_user(user_id, 'remove_reminder_id_error'))
             return
         
         user_id = update.effective_user.id
@@ -24,11 +25,11 @@ async def remove_reminder_handler(update, context):
 
         if success:
             logger.info(f'🗑️ User {user_id} deleted reminder {reminder_id}')
-            await update.message.reply_text(f'✅ The reminder {reminder_id} has been deleted')
+            await update.message.reply_text(get_text_for_user(user_id, 'remove_reminder_success').format(reminder_id=reminder_id))
         
         else:
-            await update.message.reply_text(f'❌ No reminder with ID {reminder_id} was found')
+            await update.message.reply_text(get_text_for_user(user_id, 'remove_reminder_fail').format(reminder_id=reminder_id))
     
     except Exception as e:
         logger.error(f'❌ Error in remove_remind: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))

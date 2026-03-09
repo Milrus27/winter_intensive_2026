@@ -89,7 +89,7 @@ def check_autoban(user_id, users_data=None):
         spam_flags = users_data[user_id_str].get('spam_flags', 0)
         is_blocked = users_data[user_id_str].get('is_blocked', False)
 
-    if spam_flags >= 10 and not is_blocked:
+    if spam_flags >= 25 and not is_blocked:
         ban_user(user_id, reason='autoban (more then 10 spam flags)', auto=True)
         return True
     

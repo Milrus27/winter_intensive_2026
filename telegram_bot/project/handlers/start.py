@@ -21,4 +21,4 @@ async def start(update, context):
 
     except Exception as e:
         logger.error(f'❌ Error in start: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))

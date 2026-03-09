@@ -1,6 +1,7 @@
 import logging
 from utils.reminder_storage import add_reminder
 from utils.user_manager import update_user
+from utils.language import get_text_for_user
 
 logger = logging.getLogger(__name__)
 
@@ -9,32 +10,32 @@ async def remind(update, context):
     update_user(user_id)
     try:
         if len(context.args) < 2:
-            await update.message.reply_text('❌ To call the command: /remind [text] [hours]')
+            await update.message.reply_text(get_text_for_user(user_id, 'remind_no_context_args'))
             return
         
         try:
             hours = int(context.args[-1])
 
         except ValueError:
-            await update.message.reply_text('❌ The number of hours must be an integer number (1 - 168)')
+            await update.message.reply_text(get_text_for_user(user_id, 'remind_incorrect_hours'))
             return
         
         except IndexError:
-            await update.message.reply_text('❌ Please, specify hours')
+            await update.message.reply_text(get_text_for_user(user_id, 'remind_no_hours'))
             return
 
         text = ' '.join(context.args[:-1])
 
         if not (1 <= hours <= 168):
-            await update.message.reply_text('❌ The time should be between 1 and 168 (hours)')
+            await update.message.reply_text(get_text_for_user(user_id, 'remind_incorrect_range'))
             return
 
         if not text.strip():
-            await update.message.reply_text('❌ Please, enter the text for the reminder')
+            await update.message.reply_text(get_text_for_user(user_id, 'remind_no_text'))
             return
         
         if len(text) > 1000:
-            await update.message.reply_text('❌ The text should be less than 1000 characters long')
+            await update.message.reply_text(get_text_for_user(user_id, 'remind_incorrect_len'))
             return
 
         user_id = update.effective_user.id
@@ -43,10 +44,10 @@ async def remind(update, context):
 
         if reminder_id:
             logging.info(f'📝 The user {user_id} added a new reminder (ID: {reminder_id})')
-            await update.message.reply_text(f'✅ Reminder added! ID: {reminder_id}')
+            await update.message.reply_text(get_text_for_user(user_id, 'reminder_added').format(reminder_id=reminder_id))
         else:
-            await update.message.reply_text('❌ You have exceeded the 5 reminder limit. Delete at least one')
+            await update.message.reply_text(get_text_for_user(user_id, 'reminders_limit'))
     
     except Exception as e:
         logger.error(f'❌ Error in remind: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))

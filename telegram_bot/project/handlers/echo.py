@@ -5,6 +5,7 @@ from utils.safe_logger import safe_logger
 from utils.validators import valid_len_text, no_binary
 from utils.user_manager import increase_spam_flags
 from utils.ban_manager import check_autoban, is_user_banned
+from utils.language import get_text_for_user
 
 logger = logging.getLogger(__name__)
 
@@ -15,34 +16,31 @@ async def echo(update, context):
         update_user(user_id)
 
         if is_user_banned(user_id):
-            await update.message.reply_text(
-'''🚫 You have been banned for spamming in echo mode
-📝 You can still use: /remind, /reminders, /remove_remind
-🔄 Contact administrator for unban''')
+            await update.message.reply_text(get_text_for_user(user_id, 'echo_banned_user'))
             logger.info(f'⛔ Banned user {user_id} attempted to use echo')
             return
         
         if not user_text.strip():
-            await update.message.reply_text('📝 Please, type something')
+            await update.message.reply_text(get_text_for_user(user_id, 'echo_not_user_text'))
             return
 
         if not valid_len_text(user_text, max_len=1000):
-            await update.message.reply_text('❌ The message is too long (no more than 1000 characters)')
+            await update.message.reply_text(get_text_for_user(user_id, 'echo_invalid_len'))
             logger.warning(f'Too long message from {user_id}: {len(user_text)} characters')
             return
         
         if not no_binary(user_text):
-            await update.message.reply_text('❌ The message contains invalid characters')
+            await update.message.reply_text(get_text_for_user(user_id, 'echo_invalid_chars'))
             logger.warning(f'Binary characters from {user_id}')
             return
 
         if limiter(context.user_data, interval=1.0):
-            await update.message.reply_text('⏳ Please, not so fast')
+            await update.message.reply_text(get_text_for_user(user_id, 'echo_limit'))
 
             updated_users = increase_spam_flags(user_id)
 
             if check_autoban(user_id, updated_users):
-                await update.message.reply_text('🚫 You have been banned for spam')
+                await update.message.reply_text(get_text_for_user(user_id, 'echo_ban_spam'))
                 logger.warning(f'🚫 User {user_id} had been banned for spam by autoban')
                 return
             
@@ -56,4 +54,4 @@ async def echo(update, context):
 
     except Exception as e:
         logger.error(f'❌ Error in echo: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))

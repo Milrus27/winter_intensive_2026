@@ -9,13 +9,12 @@ async def help_command(update, context):
     user_id = update.effective_user.id
     update_user(user_id)
     try:
-        help_text = (get_text_for_user(user_id,'help'))
-        await update.message.reply_text(help_text)
+        await update.message.reply_text(get_text_for_user(user_id,'help'))
         logger.info(f'❓ Help requested by {user_id}')
 
         if is_admin(user_id):
             logger.info(f'💡 Admin {user_id} received admin hint in /help')
-            await update.message.reply_text('💡 You are an admin. Use /admin_help for a list of commands')
+            await update.message.reply_text(get_text_for_user(user_id, 'help_admin_hint'))
     except Exception as e:
         logger.error(f'❌ Error in help: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))

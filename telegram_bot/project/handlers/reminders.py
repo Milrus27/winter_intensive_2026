@@ -2,6 +2,7 @@ import logging
 from datetime import datetime, timezone
 from utils.reminder_storage import get_user_reminders
 from utils.user_manager import update_user
+from utils.language import get_text_for_user
 
 logger = logging.getLogger(__name__)
 
@@ -12,7 +13,15 @@ def format_reminder_time(iso_time_str):
     
     except Exception:
         return iso_time_str
-    
+
+def decline_hours(hours):
+    if hours % 10 == 1 and hours % 100 != 11:
+        return 'час'
+    elif 2 <= hours % 10 <= 4 and (hours % 100 < 10 or hours % 100 >= 20):
+        return 'часа'
+    else:
+        return 'часов'
+
 async def reminders(update, context):
     user_id = update.effective_user.id
     update_user(user_id)
@@ -20,11 +29,11 @@ async def reminders(update, context):
         user_reminders = get_user_reminders(user_id)
 
         if not user_reminders:
-            await update.message.reply_text("📭 You don't have any reminders yet")
+            await update.message.reply_text(get_text_for_user(user_id, 'no_reminders'))
             return
         
         reminders_count = len(user_reminders)
-        message = [f'📝 Your reminders ({reminders_count}/5):']
+        message = [get_text_for_user(user_id, 'reminders_message(count)').format(reminders_count=reminders_count)]
 
         for reminder in user_reminders:
             reminder_id = reminder['id']
@@ -33,24 +42,28 @@ async def reminders(update, context):
 
             reminder_next_run = format_reminder_time(reminder['next_run'])
 
-            reminder_block = f"""
-====================================
-🔔 ID: <code>{reminder_id}</code>
-📝 Text: {reminder_text}
-⏰ Set for: {reminder_time} hour{'s' if reminder_time != 1 else ''}
-🕐 Due (UTC): {reminder_next_run}
-===================================="""
-    
-            message.append(reminder_block)
-        
-        message.append('\n❓ To delete a reminder: /remove_remind [ID]\n💡 Tap the ID to copy it')
+            hours_eng = 's' if reminder_time != 1 else ''
+            hours_rus = decline_hours(reminder_time)
 
+            block_parts = [
+            '====================================',
+            get_text_for_user(user_id, 'reminder_block_id').format(reminder_id=reminder_id),
+            get_text_for_user(user_id, 'reminder_block_text').format(reminder_text=reminder_text),
+            get_text_for_user(user_id, 'reminder_block_hours').format(
+            reminder_time=reminder_time,
+            hours_eng=hours_eng,
+            hours_rus=hours_rus),
+            get_text_for_user(user_id, 'reminder_block_due').format(reminder_next_run=reminder_next_run),
+            '====================================']
+
+            message.append('')
+            message.append('\n'.join(block_parts))
+            
+        message.append(get_text_for_user(user_id, 'reminder_block_help'))
         result = '\n'.join(message)
         await update.message.reply_text(result, parse_mode='HTML')
         logger.info(f'📋 The user {user_id} viewed reminders list')
 
     except Exception as e:
         logger.error(f'❌ Error in my_reminds: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
-
-        
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))

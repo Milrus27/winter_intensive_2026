@@ -13,13 +13,13 @@ async def change_lang(update, context):
         users = load_users()
 
         if not context.args:
-            await update.message.reply_text('❌ To call the command:\n/lang en\n/lang ru')
+            await update.message.reply_text(get_text_for_user(user_id, 'lang_no_args'))
             return
         
         new_language = context.args[0].lower().strip()
 
         if new_language not in ['en', 'ru']:
-            await update.message.reply_text('❌ Incorrect language. Use en or ru')
+            await update.message.reply_text(get_text_for_user(user_id, 'incorrect_lang'))
             return
         
         save_lang(user_id, new_language)
@@ -29,4 +29,4 @@ async def change_lang(update, context):
         
     except Exception as e:
         logger.error(f'❌ Error in lang: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))

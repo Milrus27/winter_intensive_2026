@@ -459,3 +459,12 @@ Identified limitations with PythonAnywhere free tier (instability, memory constr
 📦 Versioning  
 - Bumped version to **1.1.0‑pre** to mark the first step toward multilingual support.  
 - Logging remains in English for internal clarity.
+
+### 📅 March 9, 2026: v1.1.0 Release – Multilingual Bot & Auto‑Ban Tuning
+
+- 🌐 **Full translation of all commands** – The bot now speaks both English and Russian. All user‑facing texts are properly localized via the new language system (`/lang` command, `translations.py`).  
+- 🚀 **Official release 1.1.0** – The multilingual update is finally live.  
+- 🔧 **Auto‑ban threshold raised** – Spam flag limit increased from **10 → 25** to avoid false positives during bot restarts (which could artificially inflate spam counters).  
+- ✅ **Both languages work flawlessly** – Users can switch at any time; all responses, errors, and admin messages are now fully translated.  
+
+*Project continues to evolve with stability and user experience in mind.*

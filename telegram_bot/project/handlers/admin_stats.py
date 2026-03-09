@@ -5,6 +5,7 @@ from utils.user_manager import load_users
 from utils.admin_check import is_admin
 from datetime import datetime
 from utils.user_manager import update_user
+from utils.language import get_text_for_user
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +15,7 @@ async def admin_stats(update, context):
     try:
         if not is_admin(user_id):
             logger.warning(f'🚫 Non-admin user {user_id} tried to access /admin_stats')
-            await update.message.reply_text('🚫 No access')
+            await update.message.reply_text(get_text_for_user(user_id, 'admin_command_used_by_user'))
             return
 
         logger.info(f'✅ Admin {user_id} called /admin_stats')
@@ -50,19 +51,17 @@ async def admin_stats(update, context):
         if os.path.exists('logs/bot.log'):
             log_size = os.path.getsize('logs/bot.log')
 
-        message = f'''
-    📊 Bot statistics:
-
-👥 Total users: {total_users}
-💬 Total messages: {total_messages}
-🔥 Total active users: {total_active_users}
-🚫 Total banned: {total_banned}
-👨‍💻 Manual banned: {manual_banned}
-🤖 Auto banned: {auto_banned}
-📁 Log size: {log_size} bytes'''
+        message = ''.join([get_text_for_user(user_id, 'admin_stats_text'),
+                           get_text_for_user(user_id, 'admin_stats_users').format(total_users=total_users),
+                           get_text_for_user(user_id, 'admin_stats_messages').format(total_messages=total_messages),
+                           get_text_for_user(user_id, 'admin_stats_active').format(total_active_users=total_active_users),
+                           get_text_for_user(user_id, 'admin_stats_total_banned').format(total_banned=total_banned),
+                           get_text_for_user(user_id, 'admin_stats_manual_banned').format(manual_banned=manual_banned),
+                           get_text_for_user(user_id, 'admin_stats_auto_banned').format(auto_banned=auto_banned),
+                           get_text_for_user(user_id, 'admin_stats_log_size').format(log_size=log_size)])
         
         await update.message.reply_text(message)
 
     except Exception as e:
         logger.error(f'❌ Error in admin_stats: {e}')
-        await update.message.reply_text('❌ Sorry, something went wrong:(')
+        await update.message.reply_text(get_text_for_user(user_id, 'error'))
